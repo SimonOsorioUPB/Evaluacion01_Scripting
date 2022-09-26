@@ -7,9 +7,7 @@
 */
 using System.Collections.Generic;
 
-namespace NesScripts.Controls.PathFind
-{
-    /// <summary>
+/// <summary>
     /// A 2D grid of nodes we use to find path.
     /// The grid mark which tiles are walkable and which are not.
     /// </summary>
@@ -194,5 +192,3 @@ namespace NesScripts.Controls.PathFind
             return null;
         }
     }
-
-}

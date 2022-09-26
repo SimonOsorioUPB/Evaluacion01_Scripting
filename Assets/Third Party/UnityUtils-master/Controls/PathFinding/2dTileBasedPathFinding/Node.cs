@@ -6,10 +6,7 @@
  * Since: 2016. 
 */
 
-namespace NesScripts.Controls.PathFind
-{
-    
-    /// <summary>
+/// <summary>
     /// Represent a single node in the pathfinding grid.
     /// </summary>
     public class Node
@@ -90,4 +87,3 @@ namespace NesScripts.Controls.PathFind
             }
         }
     }
-}

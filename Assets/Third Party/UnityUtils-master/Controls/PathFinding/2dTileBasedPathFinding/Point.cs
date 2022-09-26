@@ -6,9 +6,7 @@
  * Since: 2016. 
 */
 
-namespace NesScripts.Controls.PathFind
-{
-    /// <summary>
+/// <summary>
     /// A 2d point on the grid
     /// </summary>
     public struct Point
@@ -51,7 +49,7 @@ namespace NesScripts.Controls.PathFind
         public override bool Equals(System.Object obj)
         {
             // check type
-            if (!(obj.GetType() == typeof(PathFind.Point)))
+            if (!(obj.GetType() == typeof(Point)))
                  return false;
 
             // check if other is null
@@ -120,4 +118,3 @@ namespace NesScripts.Controls.PathFind
             return this;
         }
     }
-}

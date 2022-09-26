@@ -7,9 +7,7 @@
 */
 using System.Collections.Generic;
 
-namespace NesScripts.Controls.PathFind
-{
-    /// <summary>
+/// <summary>
     /// Main class to find the best path to walk from A to B.
     /// 
     /// Usage example:
@@ -156,5 +154,3 @@ namespace NesScripts.Controls.PathFind
                 14 * dstX + 10 * (dstY - dstX);
         }
     }
-
-}
