@@ -183,15 +183,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a48ac14020715244586a531dbf1ba367, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundColor: {r: 0.48658857, g: 0.6037736, b: 0.4528302, a: 1}
-  _mountainColor: {r: 0.5754717, g: 0.4395955, b: 0.30673727, a: 1}
+  _groundColor: {r: 0.65724146, g: 0.78099996, b: 0.62011397, a: 1}
+  _mountainColor: {r: 0.532, g: 0.40576273, b: 0.27952543, a: 1}
   _waterColor: {r: 0.50462794, g: 0.7789244, b: 0.7924528, a: 1}
   _renderer: {fileID: 7936180311832705201}
   _highlight: {fileID: 7936180311529657437}
+  _isWalkable: 0
+  OccupyingCharacter: {fileID: 0}
   tileType: 0
-  IsWalkable: 0
-  posX: 0
-  posY: 0
+  PosX: 0
+  PosY: 0
+  isExplored: 0
+  isExploredFrom: {fileID: 0}
 --- !u!61 &1780721110530849291
 BoxCollider2D:
   m_ObjectHideFlags: 0

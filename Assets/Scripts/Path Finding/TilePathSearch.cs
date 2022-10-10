@@ -80,7 +80,8 @@ public class TilePathSearch : MonoBehaviour
     // To check if we've reached the Ending point
     private void OnReachingEnd(Tile endingPoint)
     {
-        if (_searchingPoint == endingPoint) {
+        if (_searchingPoint == endingPoint)
+        {
             _isExploring = false;
         }
         else

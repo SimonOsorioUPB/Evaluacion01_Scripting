@@ -36,7 +36,7 @@ public class GridManager : MonoBehaviour
             }
         }
  
-        _cam.transform.position = new Vector3((float)Width/2 -0.5f, (float)Height / 2 - 0.5f,-10);
+        //_cam.transform.position = new Vector3((float)Width/2 -0.5f, (float)Height / 2 - 0.5f,-10);
         
         GameManager.Instance.UpdateGameState(GameState.SpawnUnits);
     }
