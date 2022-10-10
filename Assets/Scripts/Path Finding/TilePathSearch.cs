@@ -25,6 +25,7 @@ public class TilePathSearch : MonoBehaviour
 
     public List<Tile> Path(Tile startingPoint, Tile endingPoint)
     {
+        Debug.Log(startingPoint + ", " + endingPoint);
         _startingPoint = startingPoint;
         _endingPoint = endingPoint;
         _path = null;
@@ -60,7 +61,6 @@ public class TilePathSearch : MonoBehaviour
         }
     }
 
-
     // BFS; For finding the shortest path
     private void BFS(Tile startingPoint, Tile endingPoint)
     {
@@ -68,6 +68,7 @@ public class TilePathSearch : MonoBehaviour
         _queue = new Queue<Tile>();
         _queue.Enqueue(startingPoint);
         _searchingPoint = null;
+        _isExploring = true;
         while (_queue.Count > 0 && _isExploring) {
             _searchingPoint = _queue.Dequeue();
             OnReachingEnd(endingPoint);
@@ -105,7 +106,7 @@ public class TilePathSearch : MonoBehaviour
                 {
                     _queue.Enqueue(node);                       // Enqueueing the node at this position
                     node.isExplored = true;
-                    node.GetComponentInChildren<SpriteRenderer>().material.color = _exploredNodeColor;
+                    //node.GetComponentInChildren<SpriteRenderer>().material.color = _exploredNodeColor;
                     node.isExploredFrom = _searchingPoint;      // Set how we reached the neighbouring node i.e the previous node; for getting the path
                 }
             }
@@ -125,7 +126,7 @@ public class TilePathSearch : MonoBehaviour
 
         SetPath(startingPoint);
         _path.Reverse();
-        SetPathColor();
+        //SetPathColor();
         
     }
 

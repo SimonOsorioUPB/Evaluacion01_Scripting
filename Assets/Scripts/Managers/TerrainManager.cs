@@ -16,7 +16,7 @@ public class TerrainManager : MonoBehaviour
     {
         SetAllTiles();
         SetMountainTiles();
-        SetWaterTiles();
+        //SetWaterTiles();
     }
 
     void SetAllTiles()

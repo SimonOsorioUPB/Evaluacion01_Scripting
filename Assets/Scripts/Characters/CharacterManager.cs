@@ -22,7 +22,6 @@ public class CharacterManager : MonoBehaviour
 
     public void Move(Tile startingPoint, Tile endingPoint)
     {
-        _tilePathSearch.LoadAllBlocks();
         StartCoroutine(Movement(_tilePathSearch.Path(startingPoint, endingPoint)));
     }
 

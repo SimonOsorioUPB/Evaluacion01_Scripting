@@ -65,7 +65,8 @@ public class Tile : MonoBehaviour
                 {
                     Debug.Log("Moves");
                     UnitManager.Instance.SelectedUnit.Move(UnitManager.Instance.SelectedUnit.OccupiedTile, this);
-                    this.OccupyingCharacter = UnitManager.Instance.SelectedUnit;
+                    UnitManager.Instance.SelectedUnit.OccupiedTile = this;
+                    OccupyingCharacter = UnitManager.Instance.SelectedUnit;
                     UnitManager.Instance.SetSelectedUnit(null);
                 }
             }
