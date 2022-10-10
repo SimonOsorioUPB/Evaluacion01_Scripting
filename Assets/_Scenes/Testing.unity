@@ -291,8 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5ec16eb9191114585d603beecf5850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 6
-  Height: 6
+  Width: 16
+  Height: 9
   _tilePrefab: {fileID: 7936180311832705200, guid: 201992b81dbaaba4c8f3a1d79e6c3532, type: 3}
   _cam: {fileID: 1776294545}
   _terrainManager: {fileID: 255878651}
