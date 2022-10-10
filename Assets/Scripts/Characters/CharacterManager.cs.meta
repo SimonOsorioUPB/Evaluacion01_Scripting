@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f4e7930c1c9221443bc3bc9c800053c5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - character: {instanceID: 0}
+  - OccupiedTile: {instanceID: 0}
+  - _tilePathSearch: {fileID: 6481900582214917866, guid: 1ebe726fd1331d748bb60328af6a83e9, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

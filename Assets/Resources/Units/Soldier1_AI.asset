@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66e0a99c8b7588e46b2c875b529e462a, type: 3}
-  m_Name: Hero
+  m_Name: Soldier1_AI
   m_EditorClassIdentifier: 
-  Health: 0
-  AttackPoints: 0
-  MovementPoints: 0
-  DefensePoints: 0
-  AttackDamage: 0
+  PlayerMode: 1
+  prefab: {fileID: 507256882174666916, guid: 55067b8c5edb38d45b8243dd4cafa28c, type: 3}
+  Sprite: {fileID: 21300000, guid: a5c7d631d7c4ec947b36320286ab968d, type: 3}
+  position: {x: 2, y: 5, z: -1}
+  Health: 5
+  AttackPoints: 2
+  MovementPoints: 2
+  DefensePoints: 3
+  AttackDamage: 3
+  IsAHero: 0
   SpecialAttackDamage: 0
   SpecialAttackCost: 0
-  IsAHero: 0

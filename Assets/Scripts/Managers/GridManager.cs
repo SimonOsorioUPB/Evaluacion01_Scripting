@@ -5,6 +5,7 @@ using UnityEngine;
  
 public class GridManager : MonoBehaviour
 {
+    public static GridManager Instance;
     public int Width, Height;
     [SerializeField] private Tile _tilePrefab;
     [SerializeField] private Transform _cam;
@@ -12,20 +13,20 @@ public class GridManager : MonoBehaviour
  
     public Dictionary<Vector2, Tile> _tiles;
 
-    void Start()
+    private void Awake()
     {
-        StartCoroutine(GenerateGrid());
+        Instance = this;
     }
- 
-    IEnumerator GenerateGrid()
+
+    public IEnumerator GenerateGrid()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         _tiles = new Dictionary<Vector2, Tile>();
         for (int x = 0; x < Width; x++) {
             for (int y = 0; y < Height; y++) {
                 var spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
-                spawnedTile.posX = x;
-                spawnedTile.posY = y;
+                spawnedTile.PosX = x;
+                spawnedTile.PosY = y;
                 spawnedTile.name = $"Tile {x},{y}";
  
                 var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
@@ -36,6 +37,8 @@ public class GridManager : MonoBehaviour
         }
  
         _cam.transform.position = new Vector3((float)Width/2 -0.5f, (float)Height / 2 - 0.5f,-10);
+        
+        GameManager.Instance.UpdateGameState(GameState.SpawnUnits);
     }
  
     public Tile GetTileAtPosition(Vector2 pos) {
