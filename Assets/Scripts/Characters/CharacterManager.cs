@@ -9,20 +9,20 @@ public class CharacterManager : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     public Tile OccupiedTile;
     public PlayerModeSelection PlayerMode;
-    [SerializeField] private TilePathSearch _tilePathSearch;
+    private TilePathSearch _tilePathSearch;
 
     private void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.sprite = character.Sprite;
         PlayerMode = character.PlayerMode;
-        _tilePathSearch = Instantiate(_tilePathSearch);
+        _tilePathSearch = TilePathSearch.Instance;
         _tilePathSearch.LoadAllBlocks();
     }
 
     public void Move(Tile startingPoint, Tile endingPoint)
     {
-        _tilePathSearch = Instantiate(_tilePathSearch);
+        _tilePathSearch.LoadAllBlocks();
         StartCoroutine(Movement(_tilePathSearch.Path(startingPoint, endingPoint)));
     }
 
@@ -33,7 +33,5 @@ public class CharacterManager : MonoBehaviour
             transform.position = new Vector3(pos.x, pos.y, -1);
             yield return new WaitForSeconds(0.2f);
         }
-        _tilePathSearch._path = null;
-        //Destroy(_tilePathSearch);
     }
 }
