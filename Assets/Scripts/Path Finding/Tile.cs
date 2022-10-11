@@ -52,6 +52,7 @@ public class Tile : MonoBehaviour
                 if (UnitManager.Instance.SelectedUnit != null)
                 {
                     //Attack
+                    UnitManager.Instance.SelectedUnit.Attack(OccupyingCharacter);
                     UnitManager.Instance.SetSelectedUnit(null);
                 }
             }

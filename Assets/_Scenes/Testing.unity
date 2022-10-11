@@ -2890,6 +2890,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 691014196}
   m_CullTransparentMesh: 1
+--- !u!1 &722705481
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 722705482}
+  - component: {fileID: 722705483}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &722705482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722705481}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1224346208}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &722705483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 722705481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bb7bb042d3a5a4db200e3cb0a7f255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hero_AI_Panel: {fileID: 1947623374}
+  hero_Player_Panel: {fileID: 691014196}
+  soldier1_AI_Panel: {fileID: 1059917299}
+  soldier1_Player_Panel: {fileID: 600527248}
+  soldier2_AI_Panel: {fileID: 809623427}
+  soldier2_Player_Panel: {fileID: 1851167734}
+  hero_AI: {fileID: 0}
+  hero_Player: {fileID: 0}
+  soldier1_AI: {fileID: 0}
+  soldier1_Player: {fileID: 0}
+  soldier2_AI: {fileID: 0}
+  soldier2_Player: {fileID: 0}
+  hero_AI_health: {fileID: 1548883211}
+  hero_AI_AP: {fileID: 397460608}
+  hero_AI_MP: {fileID: 584570774}
+  hero_Player_health: {fileID: 2082863666}
+  hero_Player_AP: {fileID: 1255582617}
+  hero_Player_MP: {fileID: 183290910}
+  soldier1_AI_health: {fileID: 189000295}
+  soldier1_AI_AP: {fileID: 1866777508}
+  soldier1_AI_MP: {fileID: 1011663451}
+  soldier1_Player_health: {fileID: 64205619}
+  soldier1_Player_AP: {fileID: 878749275}
+  soldier1_Player_MP: {fileID: 319888239}
+  soldier2_AI_health: {fileID: 251385518}
+  soldier2_AI_AP: {fileID: 474198357}
+  soldier2_AI_MP: {fileID: 1252047435}
+  soldier2_Player_health: {fileID: 824025423}
+  soldier2_Player_AP: {fileID: 1548236606}
+  soldier2_Player_MP: {fileID: 1737666815}
 --- !u!1 &724159025
 GameObject:
   m_ObjectHideFlags: 0
@@ -5109,6 +5183,7 @@ Transform:
   - {fileID: 255878652}
   - {fileID: 1340382566}
   - {fileID: 1742011841}
+  - {fileID: 722705482}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
