@@ -104,7 +104,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         CharacterManager collidedCharacter = collision.gameObject.GetComponent<CharacterManager>();
         if (collision.gameObject.CompareTag("Character"))
@@ -113,6 +113,8 @@ public class CharacterManager : MonoBehaviour
             else if (PlayerMode == PlayerModeSelection.AI && collidedCharacter.PlayerMode == PlayerModeSelection.Player) IsOnAttackRange = true;
             else{ IsOnAttackRange = false; }
         }
+
+        Debug.Log("On Range " + collision);
 
         if (IsOnAttackRange && TriggerHeroSpecialAttack)
         {
