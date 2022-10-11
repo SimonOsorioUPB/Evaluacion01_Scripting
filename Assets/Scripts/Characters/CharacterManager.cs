@@ -35,9 +35,25 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void RestorePoints()
+    {
+        AttackPoints = character.AttackPoints;
+        MovementPoints = character.MovementPoints;
+    }
+
     public void Move(Tile startingPoint, Tile endingPoint)
     {
-        StartCoroutine(Movement(_tilePathSearch.Path(startingPoint, endingPoint)));
+        List<Tile> paths = _tilePathSearch.Path(startingPoint, endingPoint);
+        if (paths.Count - 1 <= MovementPoints)
+        {
+            StartCoroutine(Movement(paths));
+            MovementPoints -= (paths.Count - 1);
+        }
+        else
+        {
+            Debug.Log("This unit doesn't have the required Movement Points to reach this tile");
+            Debug.Log("You can move " + MovementPoints + " tiles.");
+        }
     }
 
     public void ReceiveDamage(float attackPoints)

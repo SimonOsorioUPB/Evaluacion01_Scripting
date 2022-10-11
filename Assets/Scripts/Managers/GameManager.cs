@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
                 HandlePlayerTurn();
                 break;
             case GameState.EnemyTurn:
+                HandleEnemyTurn();
                 break;
             case GameState.Victory:
                 break;
@@ -51,7 +52,12 @@ public class GameManager : MonoBehaviour
 
     private void HandlePlayerTurn()
     {
-        
+        TurnManager.Instance.RestoreTurnPoints();
+    }
+
+    private void HandleEnemyTurn()
+    {
+        TurnManager.Instance.RestoreTurnPoints();
     }
 }
 
