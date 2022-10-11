@@ -69,7 +69,15 @@ public class TurnManager : MonoBehaviour
             {
                 GameManager.Instance.UpdateGameState(GameState.PlayerTurn);
             }
-            
+
+            if (Hero_Player == null && Soldier1_Player == null && Soldier2_Player == null)
+            {
+                GameManager.Instance.UpdateGameState(GameState.Lose);
+            }
+            if (Hero_AI == null && Soldier1_AI == null && Soldier2_AI == null)
+            {
+                GameManager.Instance.UpdateGameState(GameState.Victory);
+            }
         }
     }
 

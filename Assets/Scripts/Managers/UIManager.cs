@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
+    
     [SerializeField]
     private GameObject hero_AI_Panel, hero_Player_Panel, soldier1_AI_Panel, soldier1_Player_Panel, soldier2_AI_Panel, soldier2_Player_Panel;
     
@@ -20,7 +22,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI soldier2_Player_health, soldier2_Player_AP, soldier2_Player_MP;
 
     private bool gotComponents;
-    
+
+    [Header("Menus")]
+    [SerializeField] private GameObject victoryScreen;
+    [SerializeField] private GameObject defeatScreen;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
         gotComponents = false;
@@ -69,5 +80,17 @@ public class UIManager : MonoBehaviour
             if (soldier1_Player == null) soldier1_Player_Panel.SetActive(false);
             if (soldier2_Player == null) soldier2_Player_Panel.SetActive(false);
         }
+    }
+
+    public void ShowDefeatScreen()
+    {
+        victoryScreen.SetActive(false);
+        defeatScreen.SetActive(true);
+    }
+
+    public void ShowVictoryScreen()
+    {
+        victoryScreen.SetActive(true);
+        defeatScreen.SetActive(false);
     }
 }

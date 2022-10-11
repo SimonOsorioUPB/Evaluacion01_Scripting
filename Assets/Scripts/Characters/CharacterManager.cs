@@ -70,7 +70,11 @@ public class CharacterManager : MonoBehaviour
 
     public void Attack(CharacterManager enemy)
     {
-        enemy.ReceiveDamage(character.AttackDamage);
+        if (AttackPoints >= 0)
+        {
+            enemy.ReceiveDamage(character.AttackDamage);
+            AttackPoints -= 1;
+        }
     }
 
     public IEnumerator Movement(List<Tile> paths)

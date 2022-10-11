@@ -80,7 +80,6 @@ public class Tile : MonoBehaviour
                         OccupyingCharacter = UnitManager.Instance.SelectedUnit;
                         UnitManager.Instance.SetSelectedUnit(null);
                     }
-                    
                 }
             }
         }

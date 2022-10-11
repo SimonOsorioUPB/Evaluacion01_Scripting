@@ -40,8 +40,10 @@ public class GameManager : MonoBehaviour
                 HandleEnemyTurn();
                 break;
             case GameState.Victory:
+                UIManager.Instance.ShowVictoryScreen();
                 break;
             case GameState.Lose:
+                UIManager.Instance.ShowDefeatScreen();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
