@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66e0a99c8b7588e46b2c875b529e462a, type: 3}
   m_Name: Hero_Player
   m_EditorClassIdentifier: 
+  PlayerMode: 0
   prefab: {fileID: 5144143717991019070, guid: 230debe48b4414044bac2e062f09d6f9, type: 3}
   Sprite: {fileID: 21300000, guid: 85aa837d145a1144e9eb58e81c47d4f8, type: 3}
   position: {x: 14, y: 4, z: -1}
   Health: 10
   AttackPoints: 3
-  MovementPoints: 3
+  MovementPoints: 30
   DefensePoints: 5
   AttackDamage: 5
   IsAHero: 1

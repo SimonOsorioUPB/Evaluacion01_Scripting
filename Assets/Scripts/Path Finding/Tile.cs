@@ -53,6 +53,11 @@ public class Tile : MonoBehaviour
                     UnitManager.Instance.SelectedUnit.SelectionSprite.SetActive(false);
                 }
                 UnitManager.Instance.SetSelectedUnit(OccupyingCharacter); UnitManager.Instance.SelectedUnit.SelectionSprite.SetActive(true);
+                if (UnitManager.Instance.SelectedUnit.IsAHero)
+                {
+                    UIManager.Instance.ShowHeroSpecialAttackButton();
+                }
+                else UIManager.Instance.HideHeroSpecialAttackButton();
             }
             else
             {

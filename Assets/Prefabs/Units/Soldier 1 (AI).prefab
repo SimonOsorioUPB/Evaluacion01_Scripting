@@ -53,11 +53,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: f418775e3bc5f8c4d8ea4dfe73992940, type: 2}
   OccupiedTile: {fileID: 0}
-  PlayerMode: 0
+  PlayerMode: 1
   SelectionSprite: {fileID: 3117877723908671304}
+  IsAHero: 0
   Health: 0
   AttackPoints: 0
   MovementPoints: 0
+  IsOnAttackRange: 0
+  TriggerHeroSpecialAttack: 0
 --- !u!212 &507256882174666915
 SpriteRenderer:
   m_ObjectHideFlags: 0

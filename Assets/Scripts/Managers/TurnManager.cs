@@ -88,6 +88,7 @@ public class TurnManager : MonoBehaviour
     }
     public void SetEnemyTurn()
     {
+        UIManager.Instance.HideHeroSpecialAttackButton();
         yourTurnSprite.SetActive(false);
         enemyTurnSprite.SetActive(true);
     }
@@ -115,5 +116,10 @@ public class TurnManager : MonoBehaviour
         Soldier2_AI = GameObject.Find("Soldier 2 (AI)(Clone)").GetComponent<CharacterManager>();
         Soldier2_Player = GameObject.Find("Soldier 2 (Player)(Clone)").GetComponent<CharacterManager>();
         gotComponents = true;
+    }
+
+    public void HeroSpecialAttack()
+    {
+        Hero_Player.HeroSpecialAttack();
     }
 }

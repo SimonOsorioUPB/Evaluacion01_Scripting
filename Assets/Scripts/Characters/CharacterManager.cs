@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,8 +14,12 @@ public class CharacterManager : MonoBehaviour
     private TilePathSearch _tilePathSearch;
     public GameObject SelectionSprite;
 
+    public bool IsAHero;
+
     public float Health;
     public int AttackPoints, MovementPoints;
+
+    public bool IsOnAttackRange, TriggerHeroSpecialAttack;
 
     private void Start()
     {
@@ -26,6 +31,9 @@ public class CharacterManager : MonoBehaviour
         Health = character.Health;
         AttackPoints = character.AttackPoints;
         MovementPoints = character.MovementPoints;
+        IsOnAttackRange = false;
+        TriggerHeroSpecialAttack = false;
+        IsAHero = character.IsAHero;
     }
 
     private void Update()
@@ -33,6 +41,11 @@ public class CharacterManager : MonoBehaviour
         if (Health <= 0)
         {
             Destroy(gameObject);
+        }
+
+        if (MovementPoints <= 0 && !IsOnAttackRange)
+        {
+            AttackPoints = 0;
         }
     }
 
@@ -77,12 +90,38 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void HeroSpecialAttack()
+    {
+        TriggerHeroSpecialAttack = true;
+    }
+
     public IEnumerator Movement(List<Tile> paths)
     {
         foreach (Tile path in paths) {
             Vector3 pos = path.transform.position;
             transform.position = new Vector3(pos.x, pos.y, -1);
             yield return new WaitForSeconds(0.2f);
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        CharacterManager collidedCharacter = collision.gameObject.GetComponent<CharacterManager>();
+        if (collision.gameObject.CompareTag("Character"))
+        {
+            if (PlayerMode == PlayerModeSelection.Player && collidedCharacter.PlayerMode == PlayerModeSelection.AI) IsOnAttackRange = true;
+            else if (PlayerMode == PlayerModeSelection.AI && collidedCharacter.PlayerMode == PlayerModeSelection.Player) IsOnAttackRange = true;
+            else{ IsOnAttackRange = false; }
+        }
+
+        if (IsOnAttackRange && TriggerHeroSpecialAttack)
+        {
+            TriggerHeroSpecialAttack = false;
+            if (AttackPoints >= 0)
+            {
+                collidedCharacter.ReceiveDamage(character.SpecialAttackDamage);
+                AttackPoints -= character.SpecialAttackCost;
+            }
         }
     }
 }

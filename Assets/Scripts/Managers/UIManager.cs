@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("Menus")]
     [SerializeField] private GameObject victoryScreen;
     [SerializeField] private GameObject defeatScreen;
+    [SerializeField] private GameObject HeroSpecialAttackButton;
 
     private void Awake()
     {
@@ -36,6 +37,7 @@ public class UIManager : MonoBehaviour
     {
         gotComponents = false;
         StartCoroutine(GetComponents());
+        HeroSpecialAttackButton.SetActive(false);
     }
 
     IEnumerator GetComponents()
@@ -80,6 +82,15 @@ public class UIManager : MonoBehaviour
             if (soldier1_Player == null) soldier1_Player_Panel.SetActive(false);
             if (soldier2_Player == null) soldier2_Player_Panel.SetActive(false);
         }
+    }
+
+    public void ShowHeroSpecialAttackButton()
+    {
+        HeroSpecialAttackButton.SetActive(true);
+    }
+    public void HideHeroSpecialAttackButton()
+    {
+        HeroSpecialAttackButton.SetActive(false);
     }
 
     public void ShowDefeatScreen()
