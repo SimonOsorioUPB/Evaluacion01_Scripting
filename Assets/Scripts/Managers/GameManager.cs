@@ -53,11 +53,13 @@ public class GameManager : MonoBehaviour
     private void HandlePlayerTurn()
     {
         TurnManager.Instance.RestoreTurnPoints();
+        TurnManager.Instance.SetPlayerTurn();
     }
 
     private void HandleEnemyTurn()
     {
         TurnManager.Instance.RestoreTurnPoints();
+        TurnManager.Instance.SetEnemyTurn();
     }
 }
 

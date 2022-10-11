@@ -11,6 +11,7 @@ public class CharacterManager : MonoBehaviour
     public Tile OccupiedTile;
     public PlayerModeSelection PlayerMode;
     private TilePathSearch _tilePathSearch;
+    public GameObject SelectionSprite;
 
     public float Health;
     public int AttackPoints, MovementPoints;
@@ -41,18 +42,20 @@ public class CharacterManager : MonoBehaviour
         MovementPoints = character.MovementPoints;
     }
 
-    public void Move(Tile startingPoint, Tile endingPoint)
+    public bool MoveCheck(Tile startingPoint, Tile endingPoint)
     {
         List<Tile> paths = _tilePathSearch.Path(startingPoint, endingPoint);
         if (paths.Count - 1 <= MovementPoints)
         {
             StartCoroutine(Movement(paths));
             MovementPoints -= (paths.Count - 1);
+            return true;
         }
         else
         {
             Debug.Log("This unit doesn't have the required Movement Points to reach this tile");
             Debug.Log("You can move " + MovementPoints + " tiles.");
+            return false;
         }
     }
 
@@ -60,7 +63,7 @@ public class CharacterManager : MonoBehaviour
     {
         float random = Random.Range(0f, 100f) / 100;
         float damage = attackPoints - (character.DefensePoints * random);
-        Health -= damage;
+        Health -= (int) damage;
         Debug.Log(random);
         Debug.Log("Received: " + damage + " of damage.");
     }

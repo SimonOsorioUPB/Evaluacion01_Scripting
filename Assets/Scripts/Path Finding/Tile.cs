@@ -46,13 +46,21 @@ public class Tile : MonoBehaviour
         if (GameManager.Instance.State != GameState.PlayerTurn) return;
         if (OccupyingCharacter != null)
         {
-            if (OccupyingCharacter.PlayerMode == PlayerModeSelection.Player) UnitManager.Instance.SetSelectedUnit(OccupyingCharacter);
+            if (OccupyingCharacter.PlayerMode == PlayerModeSelection.Player)
+            {
+                if (UnitManager.Instance.SelectedUnit != null)
+                {
+                    UnitManager.Instance.SelectedUnit.SelectionSprite.SetActive(false);
+                }
+                UnitManager.Instance.SetSelectedUnit(OccupyingCharacter); UnitManager.Instance.SelectedUnit.SelectionSprite.SetActive(true);
+            }
             else
             {
                 if (UnitManager.Instance.SelectedUnit != null)
                 {
                     //Attack
                     UnitManager.Instance.SelectedUnit.Attack(OccupyingCharacter);
+                    OccupyingCharacter.SelectionSprite.SetActive(false);
                     UnitManager.Instance.SetSelectedUnit(null);
                 }
             }
@@ -64,12 +72,15 @@ public class Tile : MonoBehaviour
                 //Move Unit
                 if (Walkable)
                 {
-                    Debug.Log("Moves");
-                    UnitManager.Instance.SelectedUnit.Move(UnitManager.Instance.SelectedUnit.OccupiedTile, this);
-                    UnitManager.Instance.SelectedUnit.OccupiedTile.OccupyingCharacter = null;
-                    UnitManager.Instance.SelectedUnit.OccupiedTile = this;
-                    OccupyingCharacter = UnitManager.Instance.SelectedUnit;
-                    UnitManager.Instance.SetSelectedUnit(null);
+                    if (UnitManager.Instance.SelectedUnit.MoveCheck(UnitManager.Instance.SelectedUnit.OccupiedTile, this))
+                    {
+                        UnitManager.Instance.SelectedUnit.OccupiedTile.OccupyingCharacter = null;
+                        UnitManager.Instance.SelectedUnit.OccupiedTile = this;
+                        UnitManager.Instance.SelectedUnit.SelectionSprite.SetActive(false);
+                        OccupyingCharacter = UnitManager.Instance.SelectedUnit;
+                        UnitManager.Instance.SetSelectedUnit(null);
+                    }
+                    
                 }
             }
         }

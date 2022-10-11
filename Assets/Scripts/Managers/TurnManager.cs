@@ -20,6 +20,10 @@ public class TurnManager : MonoBehaviour
 
     public int AI_Points, Player_Points;
 
+    [Header("Turn Sprites")] 
+    [SerializeField]private GameObject yourTurnSprite;
+    [SerializeField]private GameObject enemyTurnSprite;
+
     private void Awake()
     {
         Instance = this;
@@ -67,6 +71,17 @@ public class TurnManager : MonoBehaviour
             }
             
         }
+    }
+
+    public void SetPlayerTurn()
+    {
+        enemyTurnSprite.SetActive(false);
+        yourTurnSprite.SetActive(true);
+    }
+    public void SetEnemyTurn()
+    {
+        yourTurnSprite.SetActive(false);
+        enemyTurnSprite.SetActive(true);
     }
 
     public void RestoreTurnPoints()
